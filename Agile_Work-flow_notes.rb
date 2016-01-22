@@ -7,7 +7,7 @@ Scott & Kerry --> sessions, user layout
 *user_controller.rb
 *layout.erb
 
-Mira & Dan --> Homepage(landing page), round page, decks controller
+Mira & Dan --> Homepage(landing page)[X], round page[X]
 views/decks/index.erb
 decks_controller.rb
 views/rounds/show.erb
