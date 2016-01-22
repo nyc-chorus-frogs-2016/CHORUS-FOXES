@@ -1,6 +1,6 @@
 <div>
 <H1>Login Here:</H1>
-  <form action='/users' method='post' >
+  <form action='/sessions' method='post' >
     <ul>
       <li>
         <label for='user[username]'>username:</label>
@@ -15,7 +15,7 @@
   </form>
 
 <H1>Register Here:</H1>
-  <form action='/sessions' method='post'>
+  <form action='/users' method='post'>
     <ul>
       <li>
         <label for='user[username]'>username:</label>
@@ -30,13 +30,8 @@
   </form>
 </div>
 
-
-<!-- <div>
-  <form action='/sessions' method='post'>
-    <ul>
-      <li><input type='text' name='email' placeholder='email' /></li>
-      <li><input type='password' name='password' placeholder='password' /></li>
-    </ul>
-    <input type='submit' value='login'/>
-  </form>
-</div> -->
+<div class='error_message'>
+<% if @error %>
+<%= @error %>
+<% end %>
+</div>

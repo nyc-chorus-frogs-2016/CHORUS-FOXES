@@ -4,18 +4,18 @@ end
 
 
 post '/sessions' do
-  user = User.find_by(username:params[:username])
-  if user && user.password == params[:password]
+  user = User.find_by(username:params[:user][:username])
+  if user && user.password == params[:user][:password]
     session[:user_id] = user.id
     redirect '/' #the main page
   else
-    @error = 'User does not exist'
+    @error = 'User does not exist, or you fucked up your password'
     erb :'sessions/new'
   end
 end
 
 
-delete '/sessions/logout' do
+get '/logout' do
   session.clear
   redirect '/'
 end
