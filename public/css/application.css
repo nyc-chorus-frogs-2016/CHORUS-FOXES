@@ -10,43 +10,31 @@ th {
 
 
 /* basic elements */
-#error_message {
+.error_message {
   margin-top: 2em;
   background-color: red;
   font-size: 4em
 }
 
-body{
-  background-color: green;
+html{
   background-image: url("http://img13.deviantart.net/3115/i/2013/016/3/8/the_fox_and_the_frog_by_sunsetthedragon-d5qz4lt.png");
-  background-position: right;
   background-repeat: no-repeat;
-  background-size:     cover;
-  background-position: center center;
-  margin:0;
+  background-position: fixed;
+  background-size: cover;
+  height:100%;
+}
+body{
   padding:100px;
   font-family:Trebuchet MS,Arial;
   font-size:80%;
 }
-img{
-  margin:0;
-  padding:0;
-  border:none;
-}
+
 
 h1{
   padding:0;
   margin:0;
 }
-a.logo {
-  position:absolute;
-  left:0;
-  top:68px;
-  background: url(logo.jpg) center no-repeat;
-  height:133px;
-  width:100%;
-  display:block;
-}
+
 h2{
   float:left;
   margin:5px 0 5px 20px!important;
@@ -72,16 +60,8 @@ h3{
 a{  color:mediumvioletred; background: limegreen; font-weight:700; text-decoration:none; outline:none;}
 a:hover{color:#777;text-decoration:none;outline:none;}
 
-.demo a{ float:left; margin:0; padding:0; margin:5px 10px 5px 20px!important; margin:5px 10px 5px 10px; display:block; background:url(bg_tms.jpg) no-repeat; width:90px; height:90px;}
-.demo a img{ float:left; margin:0; padding:0; margin:9px 0 0 10px; background:url(bg_tms.jpg) no-repeat; width:70px; height:70px;}
 ul,li,dl,dt,dd{
   list-style-type:none;
   margin:0;
   padding:0;
-}
-.main_content_demo{
-  margin:0 auto;
-  padding:0;
-  width:900px;
-  display:block;
 }
