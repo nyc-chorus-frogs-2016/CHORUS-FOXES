@@ -2,13 +2,8 @@ get '/users/:id' do
   erb :'users/show'
 end
 
-
-
-
-
 post '/users' do
   @user = User.new(params[:user])
-  binding.pry
   if @user.save
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
