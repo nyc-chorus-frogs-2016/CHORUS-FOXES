@@ -5,12 +5,7 @@ class Round < ActiveRecord::Base
   belongs_to :deck
   belongs_to :user
 
-  #round.deck.cards.sample --> returns one random card
-
-  # round.guesses --> remove the cards where the card_id.correct? == true
-       # ==> lists the cards remaining to be guessed
-
-
+  # has_many :guessed_cards, through: :guesses, source: :cards
 
 end
 

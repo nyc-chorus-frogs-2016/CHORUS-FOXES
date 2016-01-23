@@ -1,7 +1,6 @@
 get "/rounds/:round_id/cards/:card_id" do
   @card = Card.find_by(id: params[:card_id])
   @round = Round.find_by(id: params[:round_id])
-
   erb :'cards/show'
 end
 
@@ -24,10 +23,24 @@ get "/guess/:guess_id" do
     @right_or_wrong = ["You are wrong. The answer is #{@guess.card.answer}"]
   end
 
-  # @new_deck = @guess.card.deck - @guess.card
-  # @new_card = @new_deck.sample
+  @round = @guess.round
+  @guesses = @round.guesses
+  if @guesses.size < @round.deck.cards.size
+    @guessed_card_array = @guesses.map {|guess| guess.card}
+    @unseen_cards = @guess.card.deck.cards - @guessed_card_array
+    @new_card = @unseen_cards.sample
+  else
+    @correct_cards = @round.guesses.where(correct:1).map {|guess| guess.card}
+    @incorrect_cards = @guess.card.deck.cards - @correct_cards
+    @new_card = @incorrect_cards.sample
+  end
 
-  @new_card = @guess.card.deck.cards.sample
+  if @new_card == nil
+    erb :'rounds/show'
+  else
+    erb :'guesses/show'
+  end
 
-  erb :'guesses/show'
+  #cards that only have a single guess were correctly answered the first time
+
 end

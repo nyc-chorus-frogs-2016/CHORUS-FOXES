@@ -2,10 +2,6 @@ get '/users/:id' do
   erb :'users/show'
 end
 
-
-
-
-
 post '/users' do
   @user = User.new(params[:user])
   if @user.save
