@@ -1,5 +1,15 @@
-<h1><%=@deck.name%></h1>
+<h1><%=@card.deck.name%></h1>
 
 <p><%=@card.question%><p>
 
-<form action = '/'
+<form action = '/rounds/<%=@round.id%>/cards/<%=@card.id%>' method='post'>
+  <label for='guess'>Answer:</label>
+  <input type = 'text' name='guess' >
+  <input type = 'submit' value='Submit' />
+</form>
+
+<div>
+  <% if @right_or_wrong %>
+  <%= @right_or_wrong %>
+  <% end %>
+</div>

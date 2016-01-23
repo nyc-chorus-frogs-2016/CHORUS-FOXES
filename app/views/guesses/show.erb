@@ -1,0 +1,7 @@
+<div>
+  <% if @right_or_wrong %>
+  <%= @right_or_wrong %>
+  <% end %>
+</div>
+
+<a href='/rounds/<%=@guess.round.id%>/cards/<%=@new_card.id%>'>Next Question</a>
