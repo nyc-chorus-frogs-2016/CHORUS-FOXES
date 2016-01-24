@@ -1,2 +1,41 @@
 <H1> Hi <%=current_user.username%> </H1>
 
+<div id="container">
+  <h2>Profile: <%= current_user.username %></h2>
+  <% @decks.each do |deck| %>
+  <% @rounds = deck.rounds %>
+  <h3>Deck: <%= deck.name %></h3>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Cards
+        <br />in Deck
+      </th>
+      <th>First Guesses
+        <br />Correct
+      </th>
+      <th>Total Guesses</th>
+    </tr>
+    <% @rounds.each do |round| %>
+    <div>
+    <tr>
+      <td><%= round.created_at.strftime('%B %e, %Y') %>
+      </td>
+      <td><%= round.deck.cards.count %>
+      </td>
+      <td>
+        <% counts = Hash.new 0
+          @round_guesses = round.guesses
+          @round_cards = @round_guesses.map {|guess| guess.card }
+          @round_cards.each { |num| counts[num] += 1 }
+          @correct_on_first_guess = counts.values.select {|value| value == 1 }.count %>
+        <%= @correct_on_first_guess %>
+      </td>
+      <td><%= round.guesses.count %>
+      </td>
+    </tr>
+    <div>
+    <% end %>
+  </table>
+  <% end %>
+</div>

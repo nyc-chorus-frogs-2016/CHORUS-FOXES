@@ -36,7 +36,8 @@ get "/guess/:guess_id" do
   end
 
   if @new_card == nil
-    erb :'rounds/show'
+    redirect "/rounds/#{@round.id}"
+    # erb :'rounds/show'
   else
     erb :'guesses/show'
   end
