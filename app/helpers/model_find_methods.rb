@@ -10,6 +10,6 @@ def find_guess
   Guess.find_by(id: params[:guess_id])
 end
 
-def find_guess
+def find_deck
   Deck.find_by(id: params[:deck_id])
 end

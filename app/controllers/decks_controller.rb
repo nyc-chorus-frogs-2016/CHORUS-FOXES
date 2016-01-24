@@ -8,7 +8,7 @@ get '/decks' do
 end
 
 get '/decks/:deck_id' do
-  @deck = find_guess
+  @deck = find_deck
   erb :'decks/show'
 end
 

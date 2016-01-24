@@ -11,6 +11,6 @@ end
 
 post '/rounds' do
   @round = Round.create(deck_id: params[:deck_id], user_id: current_user_id)
-  @card = find_guess.cards.sample
+  @card = find_deck.cards.sample
   redirect "/rounds/#{@round.id}/cards/#{@card.id}"
 end

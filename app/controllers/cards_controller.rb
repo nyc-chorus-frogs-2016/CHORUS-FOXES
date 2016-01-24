@@ -13,7 +13,7 @@ post "/rounds/:round_id/cards/:card_id" do
 end
 
 get "/guess/:guess_id" do
-  @guess = Guess.find_by(id: params[:guess_id])
+  @guess = find_guess
   update_guess_message
 
   if guesses_from_current_round.size < cards_from_current_round.size
