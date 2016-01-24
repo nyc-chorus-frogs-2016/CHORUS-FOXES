@@ -7,8 +7,8 @@ get '/decks' do
   erb :'decks/index'
 end
 
-get '/decks/:id' do
-  @deck = Deck.find_by(id: params[:id])
+get '/decks/:deck_id' do
+  @deck = find_deck
   erb :'decks/show'
 end
 
