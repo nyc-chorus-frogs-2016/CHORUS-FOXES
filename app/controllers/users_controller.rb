@@ -1,4 +1,5 @@
 get '/users/:id' do
+  @decks = Deck.all
   erb :'users/show'
 end
 
