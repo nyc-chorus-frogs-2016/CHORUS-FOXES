@@ -1,27 +1,20 @@
 get "/rounds/:round_id/cards/:card_id" do
-  @card = Card.find_by(id: params[:card_id])
-  @round = Round.find_by(id: params[:round_id])
+  @card = find_card
+  @round = find_round
   erb :'cards/show'
 end
 
 post "/rounds/:round_id/cards/:card_id" do
   @guess = Guess.create(round_id: params[:round_id], card_id: params[:card_id], correct: 0)
-
   if params[:guess] == @guess.card.answer
     @guess.update_attributes(correct: 1)
   end
-
   redirect "/guess/#{@guess.id}"
-
 end
 
 get "/guess/:guess_id" do
   @guess = Guess.find_by(id: params[:guess_id])
-  if @guess.correct == 1
-    @right_or_wrong = [" That is correct, you're a bamf!"]
-  else
-    @right_or_wrong = ["You are wrong. The answer is #{@guess.card.answer}"]
-  end
+  update_guess_message
 
   @round = @guess.round
   @guesses = @round.guesses
@@ -37,11 +30,8 @@ get "/guess/:guess_id" do
 
   if @new_card == nil
     redirect "/rounds/#{@round.id}"
-    # erb :'rounds/show'
   else
     erb :'guesses/show'
   end
-
-  #cards that only have a single guess were correctly answered the first time
 
 end
