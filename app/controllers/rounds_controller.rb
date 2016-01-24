@@ -1,5 +1,3 @@
-require 'pry'
-
 get '/rounds/:round_id' do
   @round = find_round
 
@@ -16,4 +14,3 @@ post '/rounds' do
   @card = find_guess.cards.sample
   redirect "/rounds/#{@round.id}/cards/#{@card.id}"
 end
-

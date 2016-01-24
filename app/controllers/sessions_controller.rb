@@ -1,5 +1,5 @@
 get '/login' do
-  erb :'sessions/new' #if/else statement logged in version
+  erb :'sessions/new'
 end
 
 post '/sessions' do

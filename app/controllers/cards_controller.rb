@@ -16,16 +16,10 @@ get "/guess/:guess_id" do
   @guess = Guess.find_by(id: params[:guess_id])
   update_guess_message
 
-  @round = @guess.round
-  @guesses = @round.guesses
-  if @guesses.size < @round.deck.cards.size
-    @guessed_card_array = @guesses.map {|guess| guess.card}
-    @unseen_cards = @guess.card.deck.cards - @guessed_card_array
-    @new_card = @unseen_cards.sample
+  if guesses_from_current_round.size < cards_from_current_round.size
+    @new_card = (cards_from_current_round-cards_from_guesses(guesses_from_current_round)).sample
   else
-    @correct_cards = @round.guesses.where(correct:1).map {|guess| guess.card}
-    @incorrect_cards = @guess.card.deck.cards - @correct_cards
-    @new_card = @incorrect_cards.sample
+    @new_card = (cards_from_current_round - cards_from_guesses(guesses_from_current_round.where(correct:1))).sample
   end
 
   if @new_card == nil
@@ -33,5 +27,4 @@ get "/guess/:guess_id" do
   else
     erb :'guesses/show'
   end
-
 end

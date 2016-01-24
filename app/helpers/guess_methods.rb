@@ -6,7 +6,14 @@ def update_guess_message
   end
 end
 
+def guesses_from_current_round
+  Guess.where(round: @guess.round)
+end
 
-# guess.round.deck.cards
-# guess.card.deck.cards
-# guess.round.guesses
+def cards_from_current_round
+  Card.where(deck: @guess.deck)
+end
+
+def cards_from_guesses(guesses)
+  guesses.map {|guess| guess.card}
+end
