@@ -1,8 +1,8 @@
 def update_guess_message
   if @guess.correct == 1
-    @right_or_wrong = [" That is correct, you're a bamf!"]
+    @right_or_wrong = " That is correct, you're doing great!"
   else
-    @right_or_wrong = ["You are wrong. The answer is #{@guess.card.answer}"]
+    @right_or_wrong = "Sorry, that is incorrect. The answer is #{@guess.card.answer}"
   end
 end
 

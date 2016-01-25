@@ -1,7 +1,11 @@
-<div>
-  <% if @right_or_wrong %>
-  <%= @right_or_wrong %>
-  <% end %>
-</div>
+<!-- <section class="transparent"> -->
 
-<a href='/rounds/<%=@guess.round.id%>/cards/<%=@new_card.id%>'>Next Question</a>
+  <div class="right_wrong">
+    <% if @right_or_wrong %>
+    <p><%= @right_or_wrong %></p>
+    <% end %>
+    <br>
+    <a href='/rounds/<%=@guess.round.id%>/cards/<%=@new_card.id%>'>Next Question</a>
+  </div>
+
+<!-- </section> -->

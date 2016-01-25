@@ -1,3 +1,7 @@
-<h1> <%=@round.deck.name%> </h1>
+<section class="transparent">
 
-<p>You've completed a round of <%=@round.deck.name%>. You answered <%= @correct_on_first_guess %>/<%=@round.deck.cards.count%> cards correctly on the first try. You submitted <%=@round.guesses.count%> total guesses before each card was answered correctly.
+  <h1> <%=@round.deck.name%> </h1>
+
+  <p id="results">You've completed a round of <%=@round.deck.name%>. You answered <%= @correct_on_first_guess %>/<%=@round.deck.cards.count%> cards correctly on the first try. You submitted <%=@round.guesses.count%> total guesses before each card was answered correctly.
+
+</section
