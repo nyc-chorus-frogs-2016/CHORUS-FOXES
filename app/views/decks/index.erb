@@ -1,6 +1,8 @@
-<h1> Flashcard Decks </h1>
-<ul>
-  <%@decks.each do |deck| %>
-    <li><a href = "/decks/<%= deck.id %>"> <%=deck.name%> </a></li>
-  <%end %>
-</ul>
+<section class="transparent">
+  <h1> Flashcard Decks </h1>
+  <ul>
+    <%@decks.each do |deck| %>
+      <li><p><a href = "/decks/<%= deck.id %>"> <%=deck.name%> </a></p></li>
+    <%end %>
+  </ul>
+</section>
