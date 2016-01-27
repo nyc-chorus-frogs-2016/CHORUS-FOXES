@@ -8,6 +8,7 @@ post '/sessions' do
     session[:user_id] = user.id
     redirect '/'
   else
+    #ZM: Come on... with the swear words
     @error = 'User does not exist, or you fucked up your password'
     erb :'sessions/new'
   end

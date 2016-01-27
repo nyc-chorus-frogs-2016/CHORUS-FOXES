@@ -15,8 +15,8 @@ deck_6 = Deck.create(name: "Arithmetic")
 # guess_4 = Guess.create(round_id: 3, card_id: 6, correct: 0)
 # guess_5 = Guess.create(round_id: 3, card_id: 7, correct: 1)
 
-card_1 = Card.create(question: "what's up", answer: "hello", deck_id: 1)
-card_2 = Card.create(question: "how areyou", answer: "fine", deck_id: 2)
+card_1 = Card.create(question: "what's up", answer: "hello", deck: deck)
+card_2 = Card.create(question: "how areyou", answer: "fine", deck_id: deck_2.id)
 
 card_3 = Card.create(question: "name the QB of the patriots", answer: "brady", deck_id: 3)
 card_4 = Card.create(question: "name the TE of the patriots", answer: "gronkowski", deck_id: 3)

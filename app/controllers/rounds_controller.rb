@@ -7,6 +7,8 @@ get '/rounds/:round_id' do
   @round_guesses = @round.guesses
   @round_cards = @round_guesses.map {|guess| guess.card }
   @round_cards.each { |num| counts[num] += 1 }
+
+  #round.guesses.group_by{| guess | guess.card_id}.select{| card, guesses| guesses.length == 1 }.length
   @correct_on_first_guess = counts.values.select {|value| value == 1 }.count
   erb :'rounds/show'
 end
