@@ -1,6 +1,8 @@
 get '/rounds/:round_id' do
   @round = find_round
 
+  #ZM: All of this is model logic on the round. It should all be moved there and just
+  # methods that you can call. round.guesses, round.gussed_cards, round.correct_on_first_guess
   counts = Hash.new 0
   @round_guesses = @round.guesses
   @round_cards = @round_guesses.map {|guess| guess.card }
